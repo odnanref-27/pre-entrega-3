@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Agenda de peliculas</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- Primer formulario -->
+
+    <div class="container register">
+        <div class="formulario">
+            <div class="info">
+                <img class="mb-4" src="img/logo.jpg" width="88" height="75">
+                <h2>Bienvenido a Ojitus tu biblioteca de peliculas</h2>
+                <input type="button" value="Iniciar sesion" id="sigIn">
+            </div>
+        </div>
+        <div class="registrarse">
+            <div class="registro">
+                <h2 class=" mb-3 fw-normal">Crear Cuenta</h2>
+                <div class="icons">
+                    <i class="bx bxl-google"></i>
+                    <i class="bx bxl-github"></i>
+                    <i class="bx bxl-linkedin"></i>
+                </div>
+                <p> o usa tu email para registrarte</p>
+                <form class="form">
+                    <label>
+                        <i class='bx bx-user'></i>
+                        <input type="text" placeholder="Nombre Completo" required>
+                    </label>
+                    <label>
+                        <i class="bx bx-envelope"></i>
+                        <input for="floatingInput" type="email" placeholder="Correo Electronico" required>
+                    </label>
+                    <label>
+                        <i class="bx bx-lock-alt"></i>
+                        <input type="password" placeholder="Contraseña" required>
+                    </label>
+                    <input type="submit" value="Registrarse" id="registrar">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Segundo formulario -->
+
+    <div class="container login hide">
+        <div class="formulario">
+            <div class="info">
+                <img class="mb-4" src="img/logo.jpg" width="88" height="75">
+                <h2>Bienvenido a Ojitus tu biblioteca de peliculas</h2>
+                <input type="button" value="Registrarse" id="sigUp">
+            </div>
+        </div>
+        <div class="registrarse">
+            <div class="registro">
+                <h2 class=" mb-3 fw-normal">Iniciar Sesion</h2>
+                <div class="icons">
+                    <i class="bx bxl-google"></i>
+                    <i class="bx bxl-github"></i>
+                    <i class="bx bxl-linkedin"></i>
+                </div>
+                <p> o Iniciar Sesion con otra Cuenta</p>
+                <form class="form">
+                    <label>
+                        <i class="bx bx-envelope"></i>
+                        <input for="floatingInput" type="email" placeholder="Correo Electronico" id="email" required>
+                    </label>
+                    <label>
+                        <i class="bx bx-lock-alt"></i>
+                        <input type="password" placeholder="Contraseña" id="password" minlength="6" required>
+                    </label>
+                    <div class="checkbox">
+                        <input id="recordar" name="record" type="checkbox">
+                        <label for="recordar">Mantener la sesión abierta</label>
+                      </div>
+                    <input type="submit" value="Iniciar sesion" id="iniciar">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/profile.css">
+    <title>Bienvenido a Ojitus</title>
+</head>
+
+<body>
+    <div class="container">
+        <img class="img" src="img/logo.jpg" width="88" height="75">
+        <a class="links">Perfil</a>
+        <a class="links">Listas</a>
+        <a class="links">Peliculas</a>
+        <a class="links" id="cerrarSesion">Cerrar sesion</a>
+    </div>
+    <div class="item">
+        <div class="dates">
+            <header>Nueva lista de Peliculas</header>
+
+            <div class="header">
+                <i class='bx bxs-movie-play'></i>
+                <p>Nombre</p>
+                <i class='bx bxs-movie-play'></i>
+            </div>
+            <input type="text" id="name-movie" placeholder="Nombre de la pelicula">
+            <p>Comentarios</p>
+            <textarea id="description-movie" cols="90" rows="10"
+                placeholder="Descripción y/o comentarios sobre la pelicula y/o serie"></textarea>
+            <br>
+            <button class="miBoton" onclick="agregarPelicula()">Agregar Película</button>
+        </div>
+    </div>
+    <div class="list">
+        <h2>Mis Peliculas</h2>
+        <div class="lista">
+            <ul id="movie-list"></ul>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>
