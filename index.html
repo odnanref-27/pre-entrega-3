@@ -37,20 +37,20 @@
                 <form class="form">
                     <label>
                         <i class='bx bx-user'></i>
-                        <input type="text" placeholder="Nombre Completo" required>
+                        <input type="text" id="nombreCompleto" placeholder="Nombre Completo" required>
                     </label>
                     <label>
                         <i class="bx bx-envelope"></i>
-                        <input for="floatingInput" type="email" placeholder="Correo Electronico" required>
+                        <input for="floatingInput" id="correoElectronico" type="email" placeholder="Correo Electronico" required>
                     </label>
                     <label>
                         <i class="bx bx-lock-alt"></i>
-                        <input type="password" placeholder="Contraseña" required>
+                        <input type="password" id="clave" placeholder="Contraseña" pattern="(?=.*[A-Z])(?=.*\d)(?!.*[a-z]+$).{8,}" 
+                        title="La contraseña debe contener al menos una mayúscula, un número y tener una longitud mínima de 8 caracteres."  required >
                     </label>
                     <input type="submit" value="Registrarse" id="registrar">
                 </form>
             </div>
-
         </div>
     </div>
 
@@ -80,7 +80,7 @@
                     </label>
                     <label>
                         <i class="bx bx-lock-alt"></i>
-                        <input type="password" placeholder="Contraseña" id="password" minlength="6" required>
+                        <input type="password" placeholder="Contraseña" id="password" required>
                     </label>
                     <div class="checkbox">
                         <input id="recordar" name="record" type="checkbox">
@@ -92,7 +92,8 @@
 
         </div>
     </div>
-
+    <!-- librerias -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/login.js"></script>
 </body>
 

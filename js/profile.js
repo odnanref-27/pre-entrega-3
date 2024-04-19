@@ -1,43 +1,60 @@
-const peliculas = [];
 
-function agregarPelicula() {
-    const nombre = document.getElementById('name-movie').value;
-    const descripcion = document.getElementById('description-movie').value;
+document.addEventListener("DOMContentLoaded", function() {
 
-    if (nombre && descripcion) {
-        const pelicula = {
-            nombre: nombre,
-            descripcion: descripcion
-        };
-        peliculas.push(pelicula);
-        mostrarPeliculas();
-        limpiarFormulario();
-    } else {
-        alert('Por favor, completa todos los campos.');
-    }
-}
+    const buttonGuardar = document.getElementById('button');
+    const nombreUser = document.getElementById('nombreUser');
 
-function mostrarPeliculas() {
-    const listaPeliculas = document.getElementById('movie-list');
-    listaPeliculas.innerHTML = '';
-    peliculas.forEach(pelicula => {
-        const item = document.createElement('li');
-        item.innerHTML = `<strong>${pelicula.nombre}</strong>: ${pelicula.descripcion}`;
-        listaPeliculas.appendChild(item);
+    buttonGuardar.addEventListener('click', function() {
+        const nombre = document.getElementById('firstName').value;
+        const email = document.getElementById('email').value;
+
+        nombreUser.textContent = nombre;
+
+        sessionStorage.setItem('nombre', nombre);
+        sessionStorage.setItem('email', email);
+
+        Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Cambio exitoso",
+            showConfirmButton: false,
+            timer: 3000
+          });
     });
-}
 
-function limpiarFormulario() {
-    document.getElementById('name-movie').value = '';
-    document.getElementById('description-movie').value = '';
-}
+    const nombreAlmacenado = sessionStorage.getItem('nombre');
+    const emailAlmacenado = sessionStorage.getItem('email');
+
+    if (nombreAlmacenado && emailAlmacenado) {
+        document.getElementById('firstName').value = nombreAlmacenado;
+        document.getElementById('email').value = emailAlmacenado;
+        nombreUser.textContent = nombreAlmacenado;
+
+    } 
+
+    //Agrego comentario 
+    // No logre hacer funcionar que el nombre de usuario se mantenga
+    // y aparezca en su span 
+    // punto a mejorar
+    
+});
+
+//-----------------------------------------------------------------------
 
 const btnCerrarSesion = document.getElementById("cerrarSesion");
 
 btnCerrarSesion.addEventListener("click", cerrarSesion);
 
-
-function cerrarSesion(){
+function cerrarSesion() {
     sessionStorage.clear();
+    Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Cerro cession correctamente",
+        showConfirmButton: false,
+        timer: 3000
+      });
     window.location.href = "index.html";
 }
+
+//-----------------------------------------------------------------------
