@@ -108,7 +108,9 @@ function register() {
     window.location.replace("movie.html");
 }
 
+//----------------------------------------------------------------
 // Cambio de formulario
+
 const btnlogin = document.getElementById("sigIn")
 const btnloginUp = document.getElementById("sigUp")
 const formregister = document.querySelector(".register")
@@ -124,7 +126,9 @@ btnloginUp.addEventListener("click", (e) => {
     formregister.classList.remove("hide");
 })
 
+//----------------------------------------------------------------
 // Json creado para realizar la prueba
+
 localStorage.setItem("usuarios", JSON.stringify([
     {
         nombreCompleto: "Pepito Hernandez",

@@ -23,7 +23,6 @@ function getCardHTML(img, title) {
                 <img src="${IMAGE_URL}${img}" />
                 <h3>${title}</h3>
                 <a href="${API_URL_SEARCH}${encodeURIComponent(title)}" target="_blank">Ver Más</a>
-                <button onclick="agregarPeliculaAPendientes({ title: '${title}', descripcion: '' })">Agregar a mi lista de pendientes</button>
               </div>
     `;
 }

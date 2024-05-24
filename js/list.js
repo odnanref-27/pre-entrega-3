@@ -85,7 +85,7 @@ function modificarPelicula(nombre, lista) {
     let nuevoTitulo = "";
 
     Swal.fire({
-        title: "Introduce los nuevos título y descripción para la película",
+        title: "Introduce la nueva descripción para la película",
         input: "text",
         inputValue: nuevaDescripcion,
         inputPlaceholder: "Descripción",
@@ -95,7 +95,8 @@ function modificarPelicula(nombre, lista) {
         showCancelButton: true,
         confirmButtonText: "Modificar",
         showLoaderOnConfirm: true,
-        preConfirm: (nuevaDescripcion) => {
+        preConfirm: (value) => {
+            nuevaDescripcion = value;
             if (!nuevaDescripcion || !/^[a-zA-Z\s]+$/.test(nuevaDescripcion)) {
                 Swal.showValidationMessage(`La descripción solo puede contener letras y espacios.`);
             }
@@ -114,7 +115,8 @@ function modificarPelicula(nombre, lista) {
                 showCancelButton: true,
                 confirmButtonText: "Modificar",
                 showLoaderOnConfirm: true,
-                preConfirm: (nuevoTitulo) => {
+                preConfirm: (value) => {
+                    nuevoTitulo = value;
                     if (!nuevoTitulo) {
                         Swal.showValidationMessage(`El título no puede estar vacío.`);
                     }
@@ -125,7 +127,7 @@ function modificarPelicula(nombre, lista) {
                     if (lista === "misPeliculas") {
                         peliculas = peliculas.map(pelicula => {
                             if (pelicula.nombre.toLowerCase() === nombre.toLowerCase()) {
-                                return { ...pelicula, nombre: result.value, descripcion: result.value2 };
+                                return { ...pelicula, nombre: nuevoTitulo, descripcion: nuevaDescripcion };
                             }
                             return pelicula;
                         });
@@ -133,7 +135,7 @@ function modificarPelicula(nombre, lista) {
                     } else if (lista === "peliculasPendientes") {
                         peliculasPendientes = peliculasPendientes.map(pelicula => {
                             if (pelicula.nombre.toLowerCase() === nombre.toLowerCase()) {
-                                return { ...pelicula, nombre: result.value, descripcion: result.value2 };
+                                return { ...pelicula, nombre: nuevoTitulo, descripcion: nuevaDescripcion };
                             }
                             return pelicula;
                         });
@@ -188,6 +190,8 @@ function mostrarPeliculas(peliculasArray, containerId) {
     });
 }
 
+//----------------------------------------------------------------
+
 function ordenarPeliculas(peliculasArray, criterio) {
     return peliculasArray.slice().sort((a, b) => {
         if (criterio === "fecha") {
@@ -198,8 +202,6 @@ function ordenarPeliculas(peliculasArray, criterio) {
         return 0;
     });
 }
-
-//----------------------------------------------------------------
 
 document.getElementById("ordenarMisPeliculas").addEventListener("change", (event) => {
     const criterio = event.target.value;
@@ -294,7 +296,7 @@ function editarPelicula(nombre, containerId) {
     let nuevoTitulo = "";
 
     Swal.fire({
-        title: "Introduce una nueva descripción para la película",
+        title: "Introduce la nueva descripción para la película",
         input: "text",
         inputValue: nuevaDescripcion,
         inputPlaceholder: "Descripción",
@@ -304,12 +306,13 @@ function editarPelicula(nombre, containerId) {
         showCancelButton: true,
         confirmButtonText: "Modificar",
         showLoaderOnConfirm: true,
-        preConfirm: (nuevaDescripcion) => {
+        preConfirm: (value) => {
+            nuevaDescripcion = value;
             if (!nuevaDescripcion || !/^[a-zA-Z\s]+$/.test(nuevaDescripcion)) {
                 Swal.showValidationMessage(`La descripción solo puede contener letras y espacios.`);
             }
         },
-        allowOutsideClick: () => !SwalisLoading()
+        allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
@@ -323,7 +326,8 @@ function editarPelicula(nombre, containerId) {
                 showCancelButton: true,
                 confirmButtonText: "Modificar",
                 showLoaderOnConfirm: true,
-                preConfirm: (nuevoTitulo) => {
+                preConfirm: (value) => {
+                    nuevoTitulo = value;
                     if (!nuevoTitulo) {
                         Swal.showValidationMessage(`El título no puede estar vacío.`);
                     }
@@ -334,7 +338,7 @@ function editarPelicula(nombre, containerId) {
                     if (containerId === "movie-list") {
                         peliculas = peliculas.map(pelicula => {
                             if (pelicula.nombre.toLowerCase() === nombre.toLowerCase()) {
-                                return { ...pelicula, nombre: result.value, descripcion: result.value2 };
+                                return { ...pelicula, nombre: nuevoTitulo, descripcion: nuevaDescripcion };
                             }
                             return pelicula;
                         });
@@ -342,7 +346,7 @@ function editarPelicula(nombre, containerId) {
                     } else if (containerId === "peliculasPendientesList") {
                         peliculasPendientes = peliculasPendientes.map(pelicula => {
                             if (pelicula.nombre.toLowerCase() === nombre.toLowerCase()) {
-                                return { ...pelicula, nombre: result.value, descripcion: result.value2 };
+                                return { ...pelicula, nombre: nuevoTitulo, descripcion: nuevaDescripcion };
                             }
                             return pelicula;
                         });
