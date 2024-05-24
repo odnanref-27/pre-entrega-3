@@ -142,3 +142,21 @@ button:hover {
 h1{
     color: black;
 }
+
+.calificacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.calificacion .star {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.calificacion .star.seleccionado {
+    color: #f5a623;
+}

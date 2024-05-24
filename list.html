@@ -44,13 +44,27 @@
         </div>
     </div>
     <div class="list">
-        <h2>Mis Peliculas</h2>
+        <h2>Mis Películas</h2>
+        <div class="filtros">
+            <label for="ordenarMisPeliculas">Ordenar por:</label>
+            <select id="ordenarMisPeliculas">
+                <option value="fecha">Fecha de Ingreso</option>
+                <option value="calificacion">Calificación</option>
+            </select>
+        </div>
         <div class="lista">
             <ul id="movie-list"></ul>
         </div>
     </div>
     <div class="list" id="peliculasPendientesContainer">
-        <h2>Peliculas Pendientes</h2>
+        <h2>Películas Pendientes</h2>
+        <div class="filtros">
+            <label for="ordenarPeliculasPendientes">Ordenar por:</label>
+            <select id="ordenarPeliculasPendientes">
+                <option value="fecha">Fecha de Ingreso</option>
+                <option value="calificacion">Calificación</option>
+            </select>
+        </div>
         <div class="lista">
             <ul id="peliculasPendientesList"></ul>
         </div>
